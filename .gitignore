@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Environments
+dj_ajax/
+test/
+venv/
+
+# Media/Static
+media/
+staticfiles/
+
+# VS Code
+.vscode/
