@@ -10,9 +10,7 @@ posts
 {% endblock title %}
 
 {% block content %}
-    {% comment %} {% for obj in qs %}
-        {{obj.title}} - {{obj.body}} <br>
-    {% endfor %} {% endcomment %}
+    <form style="display:none">{% csrf_token %}</form>
     <div id="posts-box"></div>
     <div id="spinner-box" class="text-center">
         <div class="spinner-border" role="status"></div>
