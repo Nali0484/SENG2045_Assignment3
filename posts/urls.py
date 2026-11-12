@@ -6,7 +6,8 @@ from .views import (
     post_detail,
     post_detail_data_view,
     update_post,
-    delete_post
+    delete_post,
+    image_upload_view
 )
 
 app_name = 'posts'
@@ -14,6 +15,7 @@ app_name = 'posts'
 urlpatterns = [
     path('', post_list_and_create, name='main-board'),
     path('like-unlike/', like_unlike_post, name='like-unlike'),
+    path('upload/', image_upload_view, name='image-upload'),
     path('<int:pk>/', post_detail, name='post-detail'),
     path('<int:pk>/update/', update_post, name='post-update'),
     path('<int:pk>/delete/', delete_post, name='post-delete'),
