@@ -19,10 +19,6 @@ const bodyInput = document.getElementById('id_body')
 
 const csrf = document.getElementsByName('csrfmiddlewaretoken')
 
-// backBtn.addEventListener('click', () => {
-//     history.back()
-// })
-
 $.ajax({
     type: 'GET',
     url: url,
@@ -38,19 +34,15 @@ $.ajax({
             deleteBtn.classList.remove('not-visible')
         }
 
-        const titleEl = document.createElement('h3')
-        titleEl.setAttribute('class', 'mt-3')
-        titleEl.setAttribute('id', 'title')
-
-        const bodyEl = document.createElement('p')
-        bodyEl.setAttribute('class', 'mt-1')
-        bodyEl.setAttribute('id', 'body')
-
-        titleEl.textContent = data.title
-        bodyEl.textContent = data.body
-
-        postBox.appendChild(titleEl)
-        postBox.appendChild(bodyEl)
+        postBox.insertAdjacentHTML('beforeend', `
+            <h3 class="mt-3" id="title">${data.title}</h3>
+            <p class="mt-1" id="body">${data.body}</p>
+            <hr>
+            <div class="d-flex align-items-center">
+                <img src="${data.avatar}" class="rounded-circle me-3" style="width: 40px; height: 40px; object-fit: cover;">
+                <span>${data.author}</span>
+            </div>
+        `)
 
         titleInput.value = data.title
         bodyInput.value = data.body

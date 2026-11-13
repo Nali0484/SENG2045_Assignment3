@@ -20,13 +20,9 @@ posts
                     <button type="button" class="btn-close add-modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="post-form">
+                    <form id="post-form" autocomplete="off">
                         {% csrf_token %}
                         {{form|crispy}}
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger add-modal-close" data-bs-dismiss="modal">close</button>
-                            <button type="submit" id="add-btn" class="btn btn-success">+ add</button>
-                        </div>
                     </form>
                     <form action="upload/" id="my-dropzone" class="dropzone dz not-visible">
                         {% csrf_token %}
@@ -34,6 +30,10 @@ posts
                             <input name="file" type="file" multiple />
                         </div>
                     </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger add-modal-close" data-bs-dismiss="modal">close</button>
+                    <button type="submit" form="post-form" id="add-btn" class="btn btn-success">+ add</button>
                 </div>
             </div>
         </div>

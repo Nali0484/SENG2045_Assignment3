@@ -22,11 +22,11 @@
                     <form id="update-form">
                         {% csrf_token %}
                         {{form|crispy}}
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">close</button>
-                            <button type="submit" class="btn btn-success">update</button>
-                        </div>
                     </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">close</button>
+                    <button type="submit" form="update-form" class="btn btn-success">update</button>
                 </div>
             </div>
         </div>
@@ -42,13 +42,13 @@
                 </div>
                 <div class="modal-body">
                     Are you sure you want to delete <b>"{{obj.title}}"</b> ?
-                </div>
-                <div class="modal-footer">
                     <form id="delete-form">
                         {% csrf_token %}
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">close</button>
-                            <button type="submit" class="btn btn-success">delete</button>
                     </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">close</button>
+                    <button type="submit" form="delete-form" class="btn btn-success">delete</button>
                 </div>
             </div>
         </div>
@@ -80,8 +80,10 @@
     <a href="{% url 'posts:main-board' %}" id="back-btn" class="btn btn-info">back</a>
     <button id="update-btn" class="btn btn-primary not-visible" data-bs-toggle="modal" data-bs-target="#updateModal">update</button>
     <button id="delete-btn" class="btn btn-danger not-visible"  data-bs-toggle="modal" data-bs-target="#deleteModal">delete</button>
-    <div id="spinner-box" class="text-center">
+    
+    <div id="spinner-box" class="text-center mt-3">
         <div class="spinner-border" role="status"></div>
     </div>
+    
     <div class="mt-1" id="post-box"></div>
 {% endblock content %}
